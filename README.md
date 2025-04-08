@@ -24,7 +24,7 @@ Parameters
 
 Example:
 ```bash
-python3 jwt_secret_cracker.py -w wordlist.txt -c <your_jwt_here> -alg SHA-25
+python3 jwt_secret_cracker.py -w wordlist.txt -c <your_jwt_here> -alg SHA-256
 ```
 
 ## Output
