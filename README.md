@@ -17,12 +17,9 @@ To run the script, use the following command:
 ```bash
 python3 jwt_secret_cracker.py -w <wordlist_path> -c <jwt_value> -alg <algorithm>
 ```
-Parameters
-
-    -w: Path to the wordlist file containing potential secret keys (required).
-    
-    -c: The JWT value to be tested (required).
-    
+Parameters <br>
+    -w: Path to the wordlist file containing potential secret keys (required). <br>
+    -c: The JWT value to be tested (required). <br>
     -alg: The hashing algorithm used for the JWT signature. Choose from SHA-256, SHA-384, or SHA-512 (required).
 
 Example:
