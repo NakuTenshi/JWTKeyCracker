@@ -35,3 +35,6 @@ The script will output the following:
 
 ## Disclaimer
 This tool is intended for educational and security research purposes only. Ensure you have explicit permission to test any JWT implementations. Unauthorized access or testing can be illegal and unethical.
+
+---
+**Created by:** NakuTenshi
