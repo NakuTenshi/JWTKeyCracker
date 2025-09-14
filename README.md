@@ -5,6 +5,14 @@ It takes a JWT and a wordlist of potential keys and attempts to identify the cor
 
 ---
 
+### 🧩 How It Works
+1. Splits the JWT into **header**, **payload**, and **signature**.  
+2. Detects the signing algorithm from the JWT header.  
+3. Iterates through the wordlist to sign the header+payload with each candidate key.  
+4. Compares the generated signature to the one in the token.  
+5. Prints the secret key if found.  
+
+
 ## ✨ Features
 
 - 🔍 Brute-force HMAC-based JWT secrets (**HS256, HS384, HS512**)
@@ -12,7 +20,6 @@ It takes a JWT and a wordlist of potential keys and attempts to identify the cor
 - ⏱️ Execution time tracking
 - 🖥️ Clean and colorful console output
 `
----
 
 ## 🛠️ Installation
 
@@ -45,14 +52,6 @@ python3 JWTKeyCracker.py -w <wordlist.txt> -t <JWT>
 python3 JWTKeyCracker.py -w ./jwt_secrets.txt -t "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30"
 
 ```
----
-
-### 🧩 How It Works
-1. Splits the JWT into **header**, **payload**, and **signature**.  
-2. Detects the signing algorithm from the JWT header.  
-3. Iterates through the wordlist to sign the header+payload with each candidate key.  
-4. Compares the generated signature to the one in the token.  
-5. Prints the secret key if found.  
 
 ---
 
