@@ -5,7 +5,7 @@ It takes a JWT and a wordlist of potential keys and attempts to identify the cor
 
 ---
 
-### 🧩 How It Works
+## 🧩 How It Works
 1. Splits the JWT into **header**, **payload**, and **signature**.  
 2. Detects the signing algorithm from the JWT header.  
 3. Iterates through the wordlist to sign the header+payload with each candidate key.  
@@ -13,7 +13,7 @@ It takes a JWT and a wordlist of potential keys and attempts to identify the cor
 5. Prints the secret key if found.  
 
 
-## ✨ Features
+### ✨ Features
 
 - 🔍 Brute-force HMAC-based JWT secrets (**HS256, HS384, HS512**)
 - 📜 Custom wordlist support
