@@ -1,5 +1,7 @@
 # 🔑 JWTKeyCracker
 
+<img src="./src/example.png" width="600" height="420">
+
 **JWTKeyCracker** is a command-line tool designed to brute-force the **secret key** used to sign JSON Web Tokens (JWTs) with HMAC algorithms (HS256, HS384, HS512).  
 It takes a JWT and a wordlist of potential keys and attempts to identify the correct signing secret.
 
