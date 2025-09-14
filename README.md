@@ -1,40 +1,59 @@
-# JWT Secret Key Cracker
-A Python script for discovering weak JWT (JSON Web Token) secret keys through brute-force attacks using a provided wordlist. This tool is designed for security researchers and developers to test the strength of JWT implementations.
+# 🔑 JWTKeyCracker
 
-## Features
-- **Brute-Force Attack**: Attempts to find the secret key by generating HMAC signatures for each entry in a wordlist.
-- **Multiple Algorithms**: Supports SHA-256, SHA-384, and SHA-512 hashing algorithms for signature generation.
-- **Progress Tracking**: Displays real-time progress updates, including the number of attempts made.
-- **Execution Time Measurement**: Reports the total execution time upon completion.
-
-## Requirements
-- Python 3.x
-- Standard libraries: `os`, `argparse`, `hmac`, `base64`, `hashlib`, `time`
-
-## Usage
-To run the script, use the following command:
-
-```bash
-python3 jwt_secret_cracker.py -w <wordlist_path> -c <jwt_value> -alg <algorithm>
-```
-Parameters: <br>
-    -w: Path to the wordlist file containing potential secret keys (required). <br>
-    -c: The JWT value to be tested (required). <br>
-    -alg: The hashing algorithm used for the JWT signature. Choose from SHA-256, SHA-384, or SHA-512 (required).
-
-Example:
-```bash
-python3 jwt_secret_cracker.py -w wordlist.txt -c <your_jwt_here> -alg SHA-256
-```
-
-## Output
-The script will output the following:
-    Progress updates every 1000 attempts.
-    A success message if the secret key is found, displaying the key and execution time.
-    A failure message if the key is not found after exhausting the wordlist.
-
-## Disclaimer
-This tool is intended for educational and security research purposes only. Ensure you have explicit permission to test any JWT implementations. Unauthorized access or testing can be illegal and unethical.
+**JWTKeyCracker** is a command-line tool designed to brute-force the **secret key** used to sign JSON Web Tokens (JWTs) with HMAC algorithms (HS256, HS384, HS512).  
+It takes a JWT and a wordlist of potential keys and attempts to identify the correct signing secret.
 
 ---
-**Created by:** NakuTenshi
+
+## ✨ Features
+
+- 🔍 Brute-force HMAC-based JWT secrets (**HS256, HS384, HS512**)
+- 📜 Custom wordlist support
+- ⏱️ Execution time tracking
+- 🖥️ Clean and colorful console output
+`
+---
+
+## 🛠️ Installation
+
+Clone the repository and ensure you have Python 3 installed:
+
+```bash
+git clone https://github.com/yourusername/JWTKeyCracker.git
+cd JWTKeyCracker
+```
+No external libraries are required (only Python standard library).
+
+
+## 🚀 Usage
+
+```bash
+python3 JWTKeyCracker.py -w <wordlist.txt> -t <JWT>
+```
+
+### Arguments
+
+| Flag | Description                          | Required |
+|------|--------------------------------------|----------|
+| `-w` | Path to the wordlist containing keys | ✅       |
+| `-t` | The JWT you want to crack            | ✅       |
+
+
+#### Example
+```bash
+
+python3 JWTKeyCracker.py -w ./jwt_secrets.txt -t "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30"
+
+```
+---
+
+### 🧩 How It Works
+1. Splits the JWT into **header**, **payload**, and **signature**.  
+2. Detects the signing algorithm from the JWT header.  
+3. Iterates through the wordlist to sign the header+payload with each candidate key.  
+4. Compares the generated signature to the one in the token.  
+5. Prints the secret key if found.  
+
+---
+
+Created By: **Naku Tenshi**
