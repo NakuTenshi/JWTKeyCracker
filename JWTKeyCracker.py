@@ -133,5 +133,10 @@ if __name__ == "__main__":
     except:
         print(f"{red}[ERROR]{reset} the JWT value is not valid")
         exit()
-
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nbye :)")
+        exit()
+    except Exception as e:
+        print(f"[{red}ERROR]{reset} there is an error: {e}")
