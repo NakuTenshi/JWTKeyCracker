@@ -8,8 +8,8 @@ It takes a JWT and a wordlist of potential keys and attempts to identify the cor
 ## 🧩 How It Works
 1. Splits the JWT into **header**, **payload**, and **signature**.  
 2. Detects the signing algorithm from the JWT header.  
-3. Iterates through the wordlist to sign the header+payload with each candidate key.  
-4. Compares the generated signature to the one in the token.  
+3. Iterates through the secretKey wordList to create jwt with header+"."+payload and secretKey.  
+4. Compares the created jwt with original jwt.  
 5. Prints the secret key if found.  
 
 
